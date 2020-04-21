@@ -14,10 +14,10 @@ namespace ChatApi.Controllers
         ChatApi.Models.DBTableAdapters.Chat_MesajlarTableAdapter taMesajlar = new Models.DBTableAdapters.Chat_MesajlarTableAdapter();
 
 
-        public IEnumerable<Mesaj> Get()
+        public IEnumerable<Mesaj> Get([FromUri]int KanalId)
         {
-            dtMesajlar= taMesajlar.GetData();
-            var mesajlar= new List<Mesaj>(); ;
+            dtMesajlar= taMesajlar.GetData(KanalId);
+            var mesajlar= new List<Mesaj>(); 
 
             for (int i = 0; i < dtMesajlar.Count; i++)
             {
@@ -26,7 +26,8 @@ namespace ChatApi.Controllers
                     kID = Convert.ToInt32(dtMesajlar[i]["KullaniciID"].ToString()),
                     kAdi = dtMesajlar[i]["kAdi"].ToString(),
                     Icerik = dtMesajlar[i]["MesajIcerigi"].ToString(),
-                    Tarih = Convert.ToDateTime(dtMesajlar[i]["MesajTarihi"].ToString())
+                    Tarih = Convert.ToDateTime(dtMesajlar[i]["MesajTarihi"].ToString()),
+                    KanalId = KanalId
                 });
 
             }
@@ -40,7 +41,7 @@ namespace ChatApi.Controllers
         {
             try
             {
-                taMesajlar.InsertQuery(_mesaj.kID, _mesaj.Icerik, DateTime.Now);
+                taMesajlar.InsertQuery(_mesaj.kID, _mesaj.Icerik, DateTime.Now,_mesaj.KanalId);
                 return true;
             }
             catch 

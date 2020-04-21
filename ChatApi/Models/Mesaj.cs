@@ -11,5 +11,6 @@ namespace ChatApi.Models
         public string kAdi { get; set; }
         public string Icerik { get; set; }
         public DateTime Tarih { get; set; }
+        public int KanalId { get; set; }
     }
 }

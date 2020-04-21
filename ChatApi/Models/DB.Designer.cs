@@ -665,6 +665,12 @@ namespace ChatApi.Models {
             
             private global::System.Data.DataColumn columnkAdi;
             
+            private global::System.Data.DataColumn columnBaslik;
+            
+            private global::System.Data.DataColumn columnOlusturanKId;
+            
+            private global::System.Data.DataColumn columnKanalId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public Chat_MesajlarDataTable() {
@@ -740,6 +746,30 @@ namespace ChatApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn BaslikColumn {
+                get {
+                    return this.columnBaslik;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OlusturanKIdColumn {
+                get {
+                    return this.columnOlusturanKId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn KanalIdColumn {
+                get {
+                    return this.columnKanalId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -775,14 +805,17 @@ namespace ChatApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Chat_MesajlarRow AddChat_MesajlarRow(long KullaniciID, string MesajIcerigi, System.DateTime MesajTarihi, string kAdi) {
+            public Chat_MesajlarRow AddChat_MesajlarRow(long KullaniciID, string MesajIcerigi, System.DateTime MesajTarihi, string kAdi, string Baslik, long OlusturanKId, long KanalId) {
                 Chat_MesajlarRow rowChat_MesajlarRow = ((Chat_MesajlarRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         KullaniciID,
                         MesajIcerigi,
                         MesajTarihi,
-                        kAdi};
+                        kAdi,
+                        Baslik,
+                        OlusturanKId,
+                        KanalId};
                 rowChat_MesajlarRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowChat_MesajlarRow);
                 return rowChat_MesajlarRow;
@@ -817,6 +850,9 @@ namespace ChatApi.Models {
                 this.columnMesajIcerigi = base.Columns["MesajIcerigi"];
                 this.columnMesajTarihi = base.Columns["MesajTarihi"];
                 this.columnkAdi = base.Columns["kAdi"];
+                this.columnBaslik = base.Columns["Baslik"];
+                this.columnOlusturanKId = base.Columns["OlusturanKId"];
+                this.columnKanalId = base.Columns["KanalId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -832,6 +868,12 @@ namespace ChatApi.Models {
                 base.Columns.Add(this.columnMesajTarihi);
                 this.columnkAdi = new global::System.Data.DataColumn("kAdi", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnkAdi);
+                this.columnBaslik = new global::System.Data.DataColumn("Baslik", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBaslik);
+                this.columnOlusturanKId = new global::System.Data.DataColumn("OlusturanKId", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOlusturanKId);
+                this.columnKanalId = new global::System.Data.DataColumn("KanalId", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKanalId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -842,6 +884,7 @@ namespace ChatApi.Models {
                 this.columnId.Unique = true;
                 this.columnMesajIcerigi.MaxLength = 2147483647;
                 this.columnkAdi.MaxLength = 50;
+                this.columnBaslik.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1474,6 +1517,54 @@ namespace ChatApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Baslik {
+                get {
+                    try {
+                        return ((string)(this[this.tableChat_Mesajlar.BaslikColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Baslik\' in table \'Chat_Mesajlar\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableChat_Mesajlar.BaslikColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public long OlusturanKId {
+                get {
+                    try {
+                        return ((long)(this[this.tableChat_Mesajlar.OlusturanKIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OlusturanKId\' in table \'Chat_Mesajlar\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableChat_Mesajlar.OlusturanKIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public long KanalId {
+                get {
+                    try {
+                        return ((long)(this[this.tableChat_Mesajlar.KanalIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'KanalId\' in table \'Chat_Mesajlar\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableChat_Mesajlar.KanalIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsKullaniciIDNull() {
                 return this.IsNull(this.tableChat_Mesajlar.KullaniciIDColumn);
             }
@@ -1518,6 +1609,42 @@ namespace ChatApi.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetkAdiNull() {
                 this[this.tableChat_Mesajlar.kAdiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsBaslikNull() {
+                return this.IsNull(this.tableChat_Mesajlar.BaslikColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetBaslikNull() {
+                this[this.tableChat_Mesajlar.BaslikColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOlusturanKIdNull() {
+                return this.IsNull(this.tableChat_Mesajlar.OlusturanKIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOlusturanKIdNull() {
+                this[this.tableChat_Mesajlar.OlusturanKIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsKanalIdNull() {
+                return this.IsNull(this.tableChat_Mesajlar.KanalIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetKanalIdNull() {
+                this[this.tableChat_Mesajlar.KanalIdColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2331,6 +2458,9 @@ namespace ChatApi.Models.DBTableAdapters {
             tableMapping.ColumnMappings.Add("MesajIcerigi", "MesajIcerigi");
             tableMapping.ColumnMappings.Add("MesajTarihi", "MesajTarihi");
             tableMapping.ColumnMappings.Add("kAdi", "kAdi");
+            tableMapping.ColumnMappings.Add("Baslik", "Baslik");
+            tableMapping.ColumnMappings.Add("OlusturanKId", "OlusturanKId");
+            tableMapping.ColumnMappings.Add("KanalId", "KanalId");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2347,27 +2477,37 @@ namespace ChatApi.Models.DBTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Chat_Mesajlar.Id, Chat_Mesajlar.KullaniciID, Chat_Mesajlar.MesajIcerigi, Chat_Mesajlar.MesajTarihi, Chat_Kullanicilar.kAdi
+            this._commandCollection[0].CommandText = @"SELECT        Chat_Mesajlar.Id, Chat_Mesajlar.KullaniciID, Chat_Mesajlar.MesajIcerigi, Chat_Mesajlar.MesajTarihi, Chat_Kullanicilar.kAdi, Chat_Kanal.Baslik, Chat_Kanal.OlusturanKId, Chat_Mesajlar.KanalId
 FROM            Chat_Mesajlar INNER JOIN
-                         Chat_Kullanicilar ON Chat_Mesajlar.KullaniciID = Chat_Kullanicilar.Id
+                         Chat_Kullanicilar ON Chat_Mesajlar.KullaniciID = Chat_Kullanicilar.Id INNER JOIN
+                         Chat_Kanal ON Chat_Mesajlar.KanalId = Chat_Kanal.Id
+WHERE        (Chat_Mesajlar.KanalId = @KanalId)
 ORDER BY Chat_Mesajlar.MesajTarihi";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KanalId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "KanalId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "INSERT INTO [Chat_Mesajlar] ([KullaniciID], [MesajIcerigi], [MesajTarihi]) VALUES" +
-                " (@KullaniciID, @MesajIcerigi, @MesajTarihi)";
+            this._commandCollection[1].CommandText = "INSERT INTO [Chat_Mesajlar] ([KullaniciID], [MesajIcerigi], [MesajTarihi], [Kanal" +
+                "Id]) VALUES (@KullaniciID, @MesajIcerigi, @MesajTarihi, @KanalId)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KullaniciID", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "KullaniciID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MesajIcerigi", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "MesajIcerigi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MesajTarihi", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "MesajTarihi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KanalId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "KanalId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DB.Chat_MesajlarDataTable dataTable) {
+        public virtual int Fill(DB.Chat_MesajlarDataTable dataTable, global::System.Nullable<long> KanalId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((KanalId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((long)(KanalId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -2379,8 +2519,14 @@ ORDER BY Chat_Mesajlar.MesajTarihi";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DB.Chat_MesajlarDataTable GetData() {
+        public virtual DB.Chat_MesajlarDataTable GetData(global::System.Nullable<long> KanalId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((KanalId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((long)(KanalId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             DB.Chat_MesajlarDataTable dataTable = new DB.Chat_MesajlarDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -2390,7 +2536,7 @@ ORDER BY Chat_Mesajlar.MesajTarihi";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(global::System.Nullable<long> KullaniciID, string MesajIcerigi, global::System.Nullable<global::System.DateTime> MesajTarihi) {
+        public virtual int InsertQuery(global::System.Nullable<long> KullaniciID, string MesajIcerigi, global::System.Nullable<global::System.DateTime> MesajTarihi, global::System.Nullable<long> KanalId) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             if ((KullaniciID.HasValue == true)) {
                 command.Parameters[0].Value = ((long)(KullaniciID.Value));
@@ -2409,6 +2555,12 @@ ORDER BY Chat_Mesajlar.MesajTarihi";
             }
             else {
                 command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((KanalId.HasValue == true)) {
+                command.Parameters[3].Value = ((long)(KanalId.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

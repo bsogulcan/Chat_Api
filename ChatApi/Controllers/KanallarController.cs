@@ -20,7 +20,10 @@ namespace ChatApi.Controllers
             for (int i = 0; i < dtKanal.Count; i++)
             {
                 _kanal.Add(new Kanal { 
-                Baslik=dtKanal[i]["Baslik"].ToString(),OlusturanKId=Convert.ToInt32(dtKanal[i]["OlusturanKId"].ToString()),OlusturmaTarihi= Convert.ToDateTime( dtKanal[i]["Tarih"].ToString())
+                    Id= Convert.ToInt32(dtKanal[i]["Id"].ToString()),
+                    Baslik =dtKanal[i]["Baslik"].ToString(),
+                    OlusturanKId=Convert.ToInt32(dtKanal[i]["OlusturanKId"].ToString()),
+                    OlusturmaTarihi= Convert.ToDateTime( dtKanal[i]["Tarih"].ToString())
                 });;
             }
 
